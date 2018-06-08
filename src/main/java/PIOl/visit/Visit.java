@@ -20,7 +20,7 @@ public class Visit {
         return date;
     }
 
-    public int getIdIterator() {
+    public int getId() {
         return id;
     }
 
