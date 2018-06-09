@@ -1,8 +1,8 @@
-package PIOl;
+package pio;
 
-import PIOl.person.Client;
-import PIOl.person.CustomerServiceEmployee;
-import PIOl.schedule.WorkDay;
+import pio.person.Client;
+import pio.person.CustomerServiceEmployee;
+import pio.schedule.WorkDay;
 import junit.framework.Assert;
 import org.junit.Test;
 

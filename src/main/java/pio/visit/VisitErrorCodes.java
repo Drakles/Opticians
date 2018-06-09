@@ -1,4 +1,4 @@
-package PIOl.visit;
+package pio.visit;
 
 public class VisitErrorCodes {
     private static int errorIter = 0;

@@ -1,6 +1,6 @@
-package PIOl.person;
+package pio.person;
 
-import PIOl.visit.Visit;
+import pio.visit.Visit;
 
 import java.math.BigInteger;
 import java.time.LocalDate;

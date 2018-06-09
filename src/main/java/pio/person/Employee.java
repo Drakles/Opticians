@@ -1,7 +1,7 @@
-package PIOl.person;
+package pio.person;
 
-import PIOl.schedule.Schedule;
-import PIOl.schedule.WorkDay;
+import pio.schedule.Schedule;
+import pio.schedule.WorkDay;
 
 public abstract class Employee extends Person {
 

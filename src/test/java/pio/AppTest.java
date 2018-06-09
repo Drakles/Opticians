@@ -1,4 +1,4 @@
-package PIOl;
+package pio;
 
 import junit.framework.Test;
 import junit.framework.TestCase;

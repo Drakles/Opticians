@@ -1,9 +1,9 @@
-package PIOl;
+package pio;
 
-import PIOl.person.Client;
-import PIOl.person.CustomerServiceEmployee;
-import PIOl.person.Doctor;
-import PIOl.person.Owner;
+import pio.person.Client;
+import pio.person.CustomerServiceEmployee;
+import pio.person.Doctor;
+import pio.person.Owner;
 
 import java.util.ArrayList;
 import java.util.LinkedList;

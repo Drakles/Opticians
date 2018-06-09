@@ -1,4 +1,4 @@
-package PIOl.schedule;
+package pio.schedule;
 
 import java.time.LocalDateTime;
 

@@ -1,6 +1,6 @@
-package PIOl;
+package pio;
 
-import PIOl.person.Owner;
+import pio.person.Owner;
 import org.junit.Assert;
 import org.junit.Test;
 

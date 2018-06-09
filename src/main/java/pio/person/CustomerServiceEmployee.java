@@ -1,6 +1,6 @@
-package PIOl.person;
+package pio.person;
 
-import PIOl.OpticiansStore;
+import pio.OpticiansStore;
 
 import java.time.LocalDateTime;
 

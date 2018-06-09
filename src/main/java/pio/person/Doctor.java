@@ -1,4 +1,4 @@
-package PIOl.person;
+package pio.person;
 
 import java.util.ArrayList;
 import java.util.List;

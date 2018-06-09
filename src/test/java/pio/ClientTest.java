@@ -1,8 +1,8 @@
-package PIOl;
+package pio;
 
-import PIOl.person.Client;
-import PIOl.visit.LeansValue;
-import PIOl.visit.Visit;
+import pio.person.Client;
+import pio.visit.LeansValue;
+import pio.visit.Visit;
 import junit.framework.Assert;
 import junit.framework.TestCase;
 

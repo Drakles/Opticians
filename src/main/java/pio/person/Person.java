@@ -1,4 +1,4 @@
-package PIOl.person;
+package pio.person;
 
 public abstract class Person {
     private String name;

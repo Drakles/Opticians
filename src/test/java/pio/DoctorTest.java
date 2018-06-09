@@ -1,7 +1,7 @@
-package PIOl;
+package pio;
 
-import PIOl.person.Client;
-import PIOl.person.Doctor;
+import pio.person.Client;
+import pio.person.Doctor;
 import junit.framework.Assert;
 import junit.framework.TestCase;
 
