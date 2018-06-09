@@ -1,22 +1,52 @@
 package pio.visit;
 
+import pio.person.Client;
+import pio.person.Doctor;
+
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class Visit {
-    private final LocalDate date;
-    private final LeansValue leansValue;
+    private final LocalDateTime date;
+    private LeansValue leansValue;
     private String lens;
     private String additionalInfo;
     private static int idIterator = 0;
     private int id;
+    private Doctor doctor;
+    private Client patient;
 
-    public Visit(LocalDate date, LeansValue leansValue) {
+    public Visit(LocalDateTime date) {
         this.date = date;
-        this.leansValue = leansValue;
         id = idIterator++;
     }
 
-    public LocalDate getDate() {
+    public Visit(LocalDateTime date,LeansValue leansValue){
+        this.date = date;
+        id = idIterator++;
+        this.leansValue = leansValue;
+    }
+
+    public Visit(LocalDateTime date,Doctor doctor) {
+        this.date = date;
+        id = idIterator++;
+        this.doctor = doctor;
+    }
+
+    public Visit(LocalDateTime date,Client patient){
+        this.date = date;
+        id = idIterator++;
+        this.patient = patient;
+    }
+
+    public Visit(LocalDateTime date,Doctor doctor,Client patient) {
+        this.date = date;
+        id = idIterator++;
+        this.doctor = doctor;
+        this.patient = patient;
+    }
+
+    public LocalDateTime getDate() {
         return date;
     }
 

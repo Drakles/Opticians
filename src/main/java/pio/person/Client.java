@@ -9,10 +9,10 @@ import java.util.List;
 
 public class Client extends Person {
     private final LocalDate bornDate;
-    private final BigInteger pesel;
+    private final String pesel;
     private final List<Visit> visits;
 
-    public Client(String name, String surname, LocalDate bornDate, BigInteger pesel) {
+    public Client(String name, String surname, LocalDate bornDate, String pesel) {
         super(name, surname);
         this.bornDate = bornDate;
         this.pesel = pesel;
@@ -23,7 +23,7 @@ public class Client extends Person {
         return bornDate;
     }
 
-    public BigInteger getPesel() {
+    public String getPesel() {
         return pesel;
     }
 

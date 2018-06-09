@@ -8,31 +8,38 @@ import junit.framework.TestCase;
 
 import java.math.BigInteger;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class ClientTest extends TestCase {
 
     public void testClient() {
-        Client client = new Client("Jan", "Kowalski", LocalDate.of(1995, 1, 10), BigInteger.valueOf(95011023522L));
+        Client client = new Client("Jan", "Kowalski", LocalDate.of(1995, 1, 10)
+                , "95011023522");
         Assert.assertEquals(client.getName(), "Jan");
         Assert.assertEquals(client.getSurname(), "Kowalski");
         Assert.assertEquals(client.getBornDate().toString(), "1995-01-10");
-        Assert.assertEquals(client.getPesel().longValue(), 95011023522L);
+        Assert.assertEquals(client.getPesel(), "95011023522");
     }
 
     public void testAddVisitation() {
-        Client client = new Client("Jan", "Kowalski", LocalDate.of(1995, 1, 10), BigInteger.valueOf(95011023522L));
+        Client client = new Client("Jan", "Kowalski", LocalDate.of(1995, 1, 10)
+                ,"95011023522");
 
-        client.addVisit(new Visit(LocalDate.of(2018, 10, 20), new LeansValue(0.5f, 1.25f)));
+        client.addVisit(new Visit(LocalDateTime.of(2018, 10, 20,10,0)
+                , new LeansValue(0.5f, 1.25f)));
 
         Assert.assertTrue(client.getVisits().size() == 1);
         Assert.assertTrue(client.getVisits().get(0).getLeansValue().getLeft() == 0.5f);
         Assert.assertTrue(client.getVisits().get(0).getLeansValue().getRight() == 1.25f);
-        Assert.assertTrue(client.getVisits().get(0).getDate().equals(LocalDate.of(2018, 10, 20)));
+        Assert.assertTrue(client.getVisits().get(0).getDate().equals(
+                LocalDateTime.of(2018, 10, 20,10,0)));
     }
 
     public void testClientId() {
-        Client client1 = new Client("Jan", "Kowalski", LocalDate.of(1995, 1, 10), BigInteger.valueOf(95011023522L));
-        Client client2 = new Client("Jan", "Kowalski", LocalDate.of(1995, 1, 10), BigInteger.valueOf(95011023522L));
+        Client client1 = new Client("Jan", "Kowalski"
+                , LocalDate.of(1995, 1, 10), "95011023522");
+        Client client2 = new Client("Jan", "Kowalski"
+                , LocalDate.of(1995, 1, 10), "95011023522");
         Assert.assertTrue(!client1.equals(client2));
 
     }

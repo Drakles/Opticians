@@ -1,9 +1,9 @@
 package pio;
 
-import pio.person.Client;
-import pio.person.Doctor;
 import junit.framework.Assert;
 import junit.framework.TestCase;
+import pio.person.Client;
+import pio.person.Doctor;
 
 import java.math.BigInteger;
 import java.time.LocalDate;
@@ -18,8 +18,8 @@ public class DoctorTest extends TestCase {
 
     public void testAssignPatient() {
         Doctor doctor = new Doctor("Krystyna", "Pawłowicz");
-        OpticiansStore.getClients().add(new Client("Jan", "Kowalski", LocalDate.of(1995, 1, 10), BigInteger
-                .valueOf(95011023522L)));
+        OpticiansStore.getClients().add(new Client("Jan", "Kowalski"
+                , LocalDate.of(1995, 1, 10), "95011023522"));
         Assert.assertTrue(OpticiansStore.getClients().size() > 0);
         doctor.assignPatient(OpticiansStore.getClients().get(OpticiansStore.getClients().size() - 1));
 
@@ -32,8 +32,8 @@ public class DoctorTest extends TestCase {
 
     public void testAllDoctorPatientsInSystem() {
         Doctor doctor = new Doctor("Krystyna", "Pawłowicz");
-        OpticiansStore.getClients().add(new Client("Jan", "Kowalski", LocalDate.of(1995, 1, 10), BigInteger
-                .valueOf(95011023522L)));
+        OpticiansStore.getClients().add(new Client("Jan", "Kowalski"
+                , LocalDate.of(1995, 1, 10), "95011023522"));
         Assert.assertTrue(OpticiansStore.getClients().size() > 0);
         doctor.assignPatient(OpticiansStore.getClients().get(OpticiansStore.getClients().size() - 1));
 

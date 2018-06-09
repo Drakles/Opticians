@@ -2,9 +2,11 @@ package pio;
 
 import pio.person.Client;
 import pio.person.CustomerServiceEmployee;
+import pio.person.Doctor;
 import pio.schedule.WorkDay;
 import junit.framework.Assert;
 import org.junit.Test;
+import pio.visit.VisitErrorCodes;
 
 import java.math.BigInteger;
 import java.time.LocalDate;
@@ -15,13 +17,10 @@ public class CustomerServiceEmployeeTest {
     @Test
     public void simpleCustomerServiceEmpoyeeTest() {
         CustomerServiceEmployee izabela = new CustomerServiceEmployee("Izabela", "Nowaczyk");
-        System.out.println(OpticiansStore.getClients().size());
-
         int currentNumberOfClients = OpticiansStore.getClients().size();
         izabela.addClient(new Client("Jan", "Kowalski", LocalDate.of(1996, 10
-                , 21), BigInteger.valueOf(95011023522L)));
+                , 21), "95011023522"));
 
-        System.out.println(OpticiansStore.getClients().size());
         Assert.assertTrue(currentNumberOfClients == OpticiansStore.getClients().size() - 1);
     }
 
@@ -42,14 +41,15 @@ public class CustomerServiceEmployeeTest {
         CustomerServiceEmployee izabela = OpticiansStore.getCustomerServiceEmployees().get(OpticiansStore
                 .getCustomerServiceEmployees().size() - 1);
         Client client = new Client("Jan", "Kowalski", LocalDate.of(1995, 1, 10)
-                , BigInteger.valueOf(95011023522L));
+                , "95011023522");
         izabela.addClient(client);
 
-//        System.out.println(dupa);
+        Doctor doctor = new Doctor("Jan","Kowalski");
+        OpticiansStore.getDoctors().add(doctor);
 
-//        int resultCode = izabela.addVisit(client, LocalDateTime.of(2018, 6, 5, 10
-//                , 30),);
-//        Assert.assertTrue(resultCode == VisitErrorCodes.VISIT_CONFIRMED);
+        int resultCode = izabela.addVisit(client, LocalDateTime.of(2018, 6, 5, 10
+                , 30),doctor);
+        Assert.assertTrue(resultCode == VisitErrorCodes.VISIT_CONFIRMED);
     }
 
 }

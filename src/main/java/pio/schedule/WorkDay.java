@@ -6,7 +6,9 @@ public class WorkDay {
     private LocalDateTime startDate;
     private LocalDateTime endDate;
 
-    public WorkDay(LocalDateTime startDate, LocalDateTime endDate) {
+    public WorkDay(LocalDateTime startDate, LocalDateTime endDate) throws IllegalArgumentException {
+        if(!startDate.getDayOfWeek().equals(endDate.getDayOfWeek())) throw new IllegalArgumentException
+                ("Parameters for WorkDay should be applied only for one and the same day");
         this.startDate = startDate;
         this.endDate = endDate;
     }
