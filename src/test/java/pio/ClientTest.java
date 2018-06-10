@@ -5,6 +5,7 @@ import java.time.LocalDateTime;
 import junit.framework.Assert;
 import org.junit.Test;
 import pio.person.Client;
+import pio.visit.LeansValue;
 import pio.visit.Visit;
 import pio.visit.VisitErrorCodes;
 
@@ -27,6 +28,8 @@ public class ClientTest {
 
     client.addVisit(
         new Visit(LocalDateTime.of(2018, 10, 20, 10, 0), LocalDateTime.of(2018, 10, 20, 11, 0)));
+
+    client.getVisits().get(client.getVisits().size()-1).setLeansValue(new LeansValue(0.5f,1.25f));
 
     Assert.assertTrue(client.getVisits().size() == 1);
     Assert.assertTrue(client.getVisits().get(0).getLeansValue().getLeft() == 0.5f);

@@ -10,13 +10,14 @@ public class Visit {
   private final LocalDateTime startDate;
   private final LocalDateTime endDate;
   private LeansValue leansValue;
+
   private String lens;
+
   private String additionalInfo;
   private static int idIterator = 0;
   private int id;
   private Doctor doctor;
   private Client patient;
-
   public Visit(LocalDateTime startDate, LocalDateTime endDate) {
     if (!startDate.getDayOfWeek().equals(endDate.getDayOfWeek()) || !endDate.isAfter(startDate)) {
       throw new IllegalArgumentException("Visit can be no longer than one day");
@@ -24,6 +25,10 @@ public class Visit {
     this.startDate = startDate;
     this.endDate = endDate;
     id = idIterator++;
+  }
+
+  public void setLeansValue(LeansValue leansValue) {
+    this.leansValue = leansValue;
   }
 
   public Doctor getDoctor() {
