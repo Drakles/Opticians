@@ -6,7 +6,6 @@ import pio.visit.Visit;
 import junit.framework.Assert;
 import junit.framework.TestCase;
 
-import java.math.BigInteger;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
@@ -25,13 +24,13 @@ public class ClientTest extends TestCase {
         Client client = new Client("Jan", "Kowalski", LocalDate.of(1995, 1, 10)
                 ,"95011023522");
 
-        client.addVisit(new Visit(LocalDateTime.of(2018, 10, 20,10,0)
+        client.addVisit(new Visit(LocalDateTime.of(2018, 10, 20,10,0),LocalDateTime.of(2018, 10, 20,11,0)
                 , new LeansValue(0.5f, 1.25f)));
 
         Assert.assertTrue(client.getVisits().size() == 1);
         Assert.assertTrue(client.getVisits().get(0).getLeansValue().getLeft() == 0.5f);
         Assert.assertTrue(client.getVisits().get(0).getLeansValue().getRight() == 1.25f);
-        Assert.assertTrue(client.getVisits().get(0).getDate().equals(
+        Assert.assertTrue(client.getVisits().get(0).getStartDate().equals(
                 LocalDateTime.of(2018, 10, 20,10,0)));
     }
 

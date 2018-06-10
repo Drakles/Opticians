@@ -5,7 +5,7 @@ import pio.schedule.WorkDay;
 
 public abstract class Employee extends Person {
 
-    private Schedule schedule;
+    Schedule schedule;
 
     Employee(String name, String surname) {
         super(name, surname);

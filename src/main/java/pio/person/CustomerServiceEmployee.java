@@ -15,7 +15,7 @@ public class CustomerServiceEmployee extends Employee {
         OpticiansStore.getClients().add(client);
     }
 
-    public int addVisit(Client client, LocalDateTime visitDate, Doctor doctor) {
-        return doctor.addVisit(new Visit(visitDate,client));
+    public int addVisit(Client client, LocalDateTime startDate,LocalDateTime endDate, Doctor doctor) {
+        return doctor.addVisit(new Visit(startDate,endDate,client));
     }
 }

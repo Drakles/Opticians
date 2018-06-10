@@ -13,8 +13,7 @@ public class Schedule {
     }
 
     public WorkDay getWorkDay(LocalDate date) {
-        return workDays.stream().filter(workDay -> workDay.getStartDate().toLocalDate().isEqual(ChronoLocalDate.from
-                (date)))
-                .findFirst().orElse(null);
+        return workDays.stream().filter(workDay -> workDay.getStartDate().toLocalDate()
+            .isEqual(ChronoLocalDate.from(date))).findFirst().orElse(null);
     }
 }
