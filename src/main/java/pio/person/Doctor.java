@@ -34,7 +34,7 @@ public class Doctor extends Employee {
     return visits;
   }
 
-  int addVisit(Visit visit) {
+  public int addVisit(Visit visit) {
     WorkDay workDay = schedule.getWorkDay(visit.getStartDate().toLocalDate());
     if (workDay != null) {
       if (inRangeOfWorkingHours(workDay, visit)) {
@@ -58,4 +58,3 @@ public class Doctor extends Employee {
         && (workDay.getEndDate().compareTo(visit.getEndDate()) >= 0));
   }
 }
-

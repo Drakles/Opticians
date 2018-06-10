@@ -140,9 +140,9 @@ public class Visit {
   public static boolean conflictingVisits(List<Visit> visitList, Visit newVisit) {
     return visitList.stream()
         .anyMatch(
-            visit -> (visit.getEndDate().isAfter(newVisit.getStartDate()) && visit.getStartDate()
-                .isBefore(newVisit.getStartDate())) || (
-                visit.getStartDate().isAfter(newVisit.getStartDate()) && visit.getEndDate()
-                    .isBefore(newVisit.getEndDate())));
+            visit -> (visit.getStartDate().isBefore(newVisit.getEndDate()) && visit.getEndDate()
+                .isAfter(newVisit.getEndDate())) || (
+                visit.getStartDate().isBefore(newVisit.getStartDate()) && visit.getEndDate()
+                    .isAfter(newVisit.getStartDate())));
   }
 }
