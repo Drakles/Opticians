@@ -7,10 +7,10 @@ public class WorkDay {
   private LocalDateTime startDate;
   private LocalDateTime endDate;
 
-  public WorkDay(LocalDateTime startDate, LocalDateTime endDate) throws IllegalArgumentException {
+  public WorkDay(LocalDateTime startDate, LocalDateTime endDate) {
     if (!startDate.getDayOfWeek().equals(endDate.getDayOfWeek())) {
-      throw new IllegalArgumentException
-          ("Parameters for WorkDay should be applied only for one and the same day");
+      throw new IllegalArgumentException(
+          "Parameters for WorkDay should be applied only for one and the same day");
     }
     this.startDate = startDate;
     this.endDate = endDate;
@@ -25,10 +25,18 @@ public class WorkDay {
   }
 
   public void setStartDate(LocalDateTime startDate) {
+    if (!startDate.getDayOfWeek().equals(endDate.getDayOfWeek())) {
+      throw new IllegalArgumentException(
+          "Parameters for WorkDay should be applied only for one and the same day");
+    }
     this.startDate = startDate;
   }
 
   public void setEndDate(LocalDateTime endDate) {
+    if (!startDate.getDayOfWeek().equals(endDate.getDayOfWeek())) {
+      throw new IllegalArgumentException(
+          "Parameters for WorkDay should be applied only for one and the same day");
+    }
     this.endDate = endDate;
   }
 }
