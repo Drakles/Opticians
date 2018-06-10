@@ -10,14 +10,13 @@ public class Visit {
   private final LocalDateTime startDate;
   private final LocalDateTime endDate;
   private LeansValue leansValue;
-
   private String lens;
-
   private String additionalInfo;
   private static int idIterator = 0;
   private int id;
   private Doctor doctor;
   private Client patient;
+
   public Visit(LocalDateTime startDate, LocalDateTime endDate) {
     if (!startDate.getDayOfWeek().equals(endDate.getDayOfWeek()) || !endDate.isAfter(startDate)) {
       throw new IllegalArgumentException("Visit can be no longer than one day");
@@ -89,11 +88,6 @@ public class Visit {
     }
     Visit visit = (Visit) o;
     return id == visit.id;
-  }
-
-  @Override
-  public int hashCode() {
-    return id;
   }
 
   public static boolean conflictingVisits(List<Visit> visitList, Visit newVisit) {

@@ -34,4 +34,14 @@ public class VisitTest {
     }
   }
 
+  @Test
+  public void wrongDateTest2() {
+    try {
+      new Visit(LocalDateTime.of(2018, 10, 20, 10, 0),
+          LocalDateTime.of(2018, 10, 19, 11, 0));
+    }catch (IllegalArgumentException e){
+      Assert.assertEquals("Visit can be no longer than one day",e.getMessage());
+    }
+  }
+
 }

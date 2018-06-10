@@ -8,6 +8,7 @@ import pio.person.Client;
 import pio.person.CustomerServiceEmployee;
 import pio.person.Doctor;
 import pio.schedule.WorkDay;
+import pio.visit.Visit;
 import pio.visit.VisitErrorCodes;
 
 public class CustomerServiceEmployeeTest {
@@ -54,6 +55,28 @@ public class CustomerServiceEmployeeTest {
         , 30), LocalDateTime.of(2018, 6, 5, 11, 0), doctor);
 
     Assert.assertTrue(resultCode == VisitErrorCodes.VISIT_OK);
+  }
+
+  @Test
+  public void addVisitClientNotAvailable(){
+    OpticiansStore.getCustomerServiceEmployees().add(new CustomerServiceEmployee("Izabela"
+        , "Nowaczyk"));
+    CustomerServiceEmployee izabela = OpticiansStore.getCustomerServiceEmployees()
+        .get(OpticiansStore
+            .getCustomerServiceEmployees().size() - 1);
+    Client client = new Client("Jan", "Kowalski", LocalDate.of(1995, 1, 10)
+        , "95011023522");
+    izabela.addClient(client);
+
+    Doctor doctor = new Doctor("Jan", "Kowalski");
+    OpticiansStore.getDoctors().add(doctor);
+
+    doctor.addWorkDay(new WorkDay(LocalDateTime.of(2018, 6, 5, 10
+        , 30), LocalDateTime.of(2018, 6, 5, 18, 0)));
+
+    client.addVisit(new Visit(LocalDateTime.of(2018, 6, 5, 10
+        , 30), LocalDateTime.of(2018, 6, 5, 11, 0)));
+
   }
 
 }
