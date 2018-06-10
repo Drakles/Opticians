@@ -86,8 +86,15 @@ public class Visit {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
+
     Visit visit = (Visit) o;
+
     return id == visit.id;
+  }
+
+  @Override
+  public int hashCode() {
+    return id;
   }
 
   public static boolean conflictingVisits(List<Visit> visitList, Visit newVisit) {
