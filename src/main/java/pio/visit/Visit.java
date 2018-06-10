@@ -17,59 +17,13 @@ public class Visit {
   private Doctor doctor;
   private Client patient;
 
-  //TODO: implement VistBuilder
-  public Visit(LocalDateTime startDate, LocalDateTime endDate) throws IllegalArgumentException {
-    if (!startDate.getDayOfWeek().equals(endDate.getDayOfWeek()) && !endDate.isAfter(startDate)) {
+  public Visit(LocalDateTime startDate, LocalDateTime endDate) {
+    if (!startDate.getDayOfWeek().equals(endDate.getDayOfWeek()) || !endDate.isAfter(startDate)) {
       throw new IllegalArgumentException("Visit can be no longer than one day");
     }
     this.startDate = startDate;
     this.endDate = endDate;
     id = idIterator++;
-  }
-
-  public Visit(LocalDateTime startDate, LocalDateTime endDate, LeansValue leansValue)
-      throws IllegalArgumentException {
-    if (!startDate.getDayOfWeek().equals(endDate.getDayOfWeek()) && !endDate.isAfter(startDate)) {
-      throw new IllegalArgumentException("Visit can be no longer than one day");
-    }
-    this.startDate = startDate;
-    this.endDate = endDate;
-    id = idIterator++;
-    this.leansValue = leansValue;
-  }
-
-  public Visit(LocalDateTime startDate, LocalDateTime endDate, Doctor doctor)
-      throws IllegalArgumentException {
-    if (!startDate.getDayOfWeek().equals(endDate.getDayOfWeek()) && !endDate.isAfter(startDate)) {
-      throw new IllegalArgumentException("Visit can be no longer than one day");
-    }
-    this.startDate = startDate;
-    this.endDate = endDate;
-    id = idIterator++;
-    this.doctor = doctor;
-  }
-
-  public Visit(LocalDateTime startDate, LocalDateTime endDate, Client patient)
-      throws IllegalArgumentException {
-    if (!startDate.getDayOfWeek().equals(endDate.getDayOfWeek()) && !endDate.isAfter(startDate)) {
-      throw new IllegalArgumentException("Visit can be no longer than one day");
-    }
-    this.startDate = startDate;
-    this.endDate = endDate;
-    id = idIterator++;
-    this.patient = patient;
-  }
-
-  public Visit(LocalDateTime startDate, LocalDateTime endDate, Doctor doctor, Client patient)
-      throws IllegalArgumentException {
-    if (!startDate.getDayOfWeek().equals(endDate.getDayOfWeek()) && !endDate.isAfter(startDate)) {
-      throw new IllegalArgumentException("Visit can be no longer than one day");
-    }
-    this.startDate = startDate;
-    this.endDate = endDate;
-    id = idIterator++;
-    this.doctor = doctor;
-    this.patient = patient;
   }
 
   public Doctor getDoctor() {
