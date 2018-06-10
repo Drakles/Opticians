@@ -38,7 +38,7 @@ public class Doctor extends Employee {
     WorkDay workDay = schedule.getWorkDay(visit.getStartDate().toLocalDate());
     if (workDay != null) {
       if (inRangeOfWorkingHours(workDay, visit)) {
-        if (!conflictingVisits(visit)) {
+        if (!Visit.conflictingVisits(visits, visit)) {
           visit.setDoctor(this);
           visits.add(visit);
           return VISIT_OK;
@@ -51,15 +51,6 @@ public class Doctor extends Employee {
     } else {
       return WORKING_DATE_FOR_GIVEN_DOCTOR_NOT_FOUND;
     }
-  }
-
-  private boolean conflictingVisits(Visit newVisit) {
-    return visits.stream()
-        .anyMatch(
-            visit -> (visit.getEndDate().isAfter(newVisit.getStartDate()) && visit.getStartDate()
-                .isBefore(newVisit.getStartDate())) || (
-                visit.getStartDate().isAfter(newVisit.getStartDate()) && visit.getEndDate()
-                    .isBefore(newVisit.getEndDate())));
   }
 
   private boolean inRangeOfWorkingHours(WorkDay workDay, Visit visit) {

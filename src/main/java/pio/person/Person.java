@@ -1,47 +1,52 @@
 package pio.person;
 
 public abstract class Person {
-    private String name;
-    private String surname;
-    private static int idIterator = 0;
-    private int id;
 
-    Person(String name, String surname) {
-        this.name = name;
-        this.surname = surname;
-        id = idIterator++;
-    }
+  private String name;
+  private String surname;
+  private static int idIterator = 0;
+  private int id;
 
-    public String getName() {
-        return name;
-    }
+  Person(String name, String surname) {
+    this.name = name;
+    this.surname = surname;
+    id = idIterator++;
+  }
 
-    public void setName(String name) {
-        this.name = name;
-    }
+  public String getName() {
+    return name;
+  }
 
-    public String getSurname() {
-        return surname;
-    }
+  public void setName(String name) {
+    this.name = name;
+  }
 
-    public void setSurname(String surname) {
-        this.surname = surname;
-    }
+  public String getSurname() {
+    return surname;
+  }
 
-    public int getId() {
-        return id;
-    }
+  public void setSurname(String surname) {
+    this.surname = surname;
+  }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Person person = (Person) o;
-        return id == person.id;
-    }
+  public int getId() {
+    return id;
+  }
 
-    @Override
-    public int hashCode() {
-        return id;
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    Person person = (Person) o;
+    return id == person.id;
+  }
+
+  @Override
+  public int hashCode() {
+    return id;
+  }
 }

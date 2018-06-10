@@ -5,18 +5,18 @@ import pio.schedule.WorkDay;
 
 public abstract class Employee extends Person {
 
-    Schedule schedule;
+  Schedule schedule;
 
-    Employee(String name, String surname) {
-        super(name, surname);
-        schedule = new Schedule();
-    }
+  Employee(String name, String surname) {
+    super(name, surname);
+    schedule = new Schedule();
+  }
 
-    public Schedule getSchedule() {
-        return schedule;
-    }
+  public Schedule getSchedule() {
+    return schedule;
+  }
 
-    public void addWorkDay(WorkDay workDay) {
-        schedule.getWorkDays().add(workDay);
-    }
+  public void addWorkDay(WorkDay workDay) {
+    schedule.getWorkDays().add(workDay);
+  }
 }

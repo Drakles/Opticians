@@ -1,6 +1,7 @@
 package pio.visit;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import pio.person.Client;
 import pio.person.Doctor;
 
@@ -134,5 +135,14 @@ public class Visit {
   @Override
   public int hashCode() {
     return id;
+  }
+
+  public static boolean conflictingVisits(List<Visit> visitList, Visit newVisit) {
+    return visitList.stream()
+        .anyMatch(
+            visit -> (visit.getEndDate().isAfter(newVisit.getStartDate()) && visit.getStartDate()
+                .isBefore(newVisit.getStartDate())) || (
+                visit.getStartDate().isAfter(newVisit.getStartDate()) && visit.getEndDate()
+                    .isBefore(newVisit.getEndDate())));
   }
 }
