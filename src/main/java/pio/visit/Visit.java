@@ -86,9 +86,7 @@ public class Visit {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-
     Visit visit = (Visit) o;
-
     return id == visit.id;
   }
 
