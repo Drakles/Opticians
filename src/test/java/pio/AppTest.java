@@ -60,6 +60,8 @@ public class AppTest {
     Assert
         .assertEquals(lastDoctorVisit.getAdditionalInfo(), "Patient should buy expensive glasses");
     Assert.assertEquals(lastDoctorVisit.getLens(), "Hoya super extra expensive glasses");
+    Assert.assertTrue(lastClientVisit.getLeansValue().getLeft() == -1f);
+    Assert.assertTrue(lastClientVisit.getLeansValue().getRight() == 0.75f);
 
   }
 }

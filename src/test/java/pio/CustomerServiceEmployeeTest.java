@@ -34,6 +34,8 @@ public class CustomerServiceEmployeeTest {
     Assert.assertTrue(sumHours == 8);
   }
 
+
+  //integration test (client module and doctor module)
   @Test
   public void addVisit() {
     OpticiansStore.getCustomerServiceEmployees().add(new CustomerServiceEmployee("Izabela"
